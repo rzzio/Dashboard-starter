@@ -1,22 +1,25 @@
 .card {
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 15px; /* Increased for more circular edges */
   color: white;
   margin: 10px 0;
   transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  background: linear-gradient(145deg, #6e8efb, #88a2f9); /* Subtle gradient */
 }
 
 .card h3 {
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 30;
   font-size: 24px;
 }
 
 .card p {
   margin: 0;
-  font-size: 18px;
+  font-size: 30px;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover for a 'lifting' effect */
 }
