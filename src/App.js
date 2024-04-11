@@ -6,6 +6,9 @@ import './pages/Home'
 import Home from './pages/Home';
 import Ticket from './pages/Ticket';
 import Nopage from './pages/NoPage';
+import Users from './pages/Users'
+import Admins from './pages/Admins'
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -21,12 +24,20 @@ function App() {
     <div>
    <BrowserRouter>
    <Routes>
-    <Route index element={<Home />}/>
+    <Route index element={<Login />}/>   // Load this compoinent 1st
     <Route path='/dashboard' element={<Home />}/>
 
 
     
     <Route path='/tickets' element={<Ticket />}/>
+
+    <Route path= '/users' element={<Users />} />
+    <Route path= '/admins' element={<Admins />} />
+
+    <Route path= '/login' element={<Login />} />
+
+
+
 
 
 

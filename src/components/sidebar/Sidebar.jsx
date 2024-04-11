@@ -39,7 +39,7 @@ const Sidebar = () => {
             <span>{item.heading}</span>
           </div>
         ))}
-        <div className="menuItem" onClick={() => navigate('/')}>
+        <div className="menuItem" onClick={() => navigate('/login')}>
           <UilSignOutAlt />
           <span>Logout</span>
         </div>
