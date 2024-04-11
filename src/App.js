@@ -33,7 +33,6 @@ function App() {
 
     <Route path= '/users' element={<Users />} />
     <Route path= '/admins' element={<Admins />} />
-
     <Route path= '/login' element={<Login />} />
 
 
