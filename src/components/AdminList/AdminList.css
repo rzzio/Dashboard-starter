@@ -1,0 +1,136 @@
+/* General styling for the Admin List page */
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gap-2 {
+    gap: 8px;
+  }
+  
+  .gap-3 {
+    gap: 12px;
+  }
+  
+  .gap-4 {
+    gap: 16px;
+  }
+  
+  /* Specific styling for search and dropdowns */
+  input[type="text"] {
+    flex-grow: 1;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    z-index: 100;
+  }
+  
+  /* Button styles */
+  button {
+    cursor: pointer;
+  }
+  
+  button.isIconOnly {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Pagination styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+  
+  .pagination li {
+    margin: 0 5px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hidden.sm\\:flex {
+      display: none;
+    }
+  
+    .flex {
+      flex-direction: column;
+    }
+    
+    .sm\\:max-w-auto {
+      max-width: 100%;
+    }
+  }
+  
+  /* Utility classes for text styling */
+  .text-small {
+    font-size: 0.875rem; /* Small text */
+  }
+  
+  .text-tiny {
+    font-size: 0.75rem; /* Tiny text */
+  }
+  
+  .text-bold {
+    font-weight: bold;
+  }
+  
+  .text-default-400 {
+    color: #666; /* Mid-level grey */
+  }
+  
+  /* Capitalize text */
+  .capitalize {
+    text-transform: capitalize;
+  }
+  
+  /* Adjustments for user avatar and description */
+  .user-avatar {
+    border-radius: 50%;
+  }
+  
+  .user-description {
+    font-size: 0.75rem;
+    color: #999;
+  }
+  
+  /* Styles for chips indicating status */
+  .chip {
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    color: white;
+    background-color: #ccc; /* Default background */
+  }
+  
+  .chip.success {
+    background-color: #4CAF50; /* Green */
+  }
+  
+  .chip.danger {
+    background-color: #F44336; /* Red */
+  }
+  
+  .chip.warning {
+    background-color: #FFEB3B; /* Yellow */
+  }
+  

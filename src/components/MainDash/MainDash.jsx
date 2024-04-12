@@ -8,6 +8,7 @@ const MainDash = () => {
     <div>
        <h1>Dashboard</h1>
     <Cards/>
+    <h3> Recent Tickets</h3>
     <Table/>
       
     </div>
