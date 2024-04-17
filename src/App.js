@@ -9,6 +9,9 @@ import Nopage from './pages/NoPage';
 import Users from './pages/Users'
 import Admins from './pages/Admins'
 import Login from './pages/Login';
+import TicketViewTempPage from './pages/TicketViewTempPage';
+
+
 
 function App() {
   return (
@@ -25,6 +28,8 @@ function App() {
    <BrowserRouter>
    <Routes>
     <Route index element={<Login />}/>   // Load this compoinent 1st
+
+
     <Route path='/dashboard' element={<Home />}/>
 
 
@@ -33,16 +38,16 @@ function App() {
     <Route path= '/users' element={<Users />} />
     <Route path= '/admins' element={<Admins />} />
     <Route path= '/login' element={<Login />} />
+    <Route path= '/tempticket' element={<TicketViewTempPage />} />
 
 
 
 
+    <Route path='*' element={<Nopage/>} /> /*404 error page*/
 
 
 
 
-
-    <Route path='*' element={<Nopage/>} />
    </Routes>
    </BrowserRouter>
     </div>

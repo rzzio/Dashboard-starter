@@ -1,0 +1,92 @@
+.ticketContainer {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.ticketHeader {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.ticketText {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.ticketHighlight {
+    color: #0056b3;
+    font-weight: bold;
+}
+
+.noData {
+    color: #999;
+    font-style: italic;
+}
+
+.attachmentSection {
+    margin-top: 10px;
+}
+
+.attachmentImages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust spacing between images */
+}
+
+.attachmentImage {
+    width: auto;
+    max-width: 200px; /* Control maximum width of images */
+    height: auto;
+    cursor: pointer; /* Indicates that the image is clickable */
+    transition: transform 0.2s; /* Smooth transition for visual feedback */
+}
+
+.attachmentImage:hover {
+    transform: scale(1.05); /* Slightly enlarge images on hover */
+}
+.priority {
+    padding: 8px;
+    border-radius: 9px;
+}
+
+.statusDropdown {
+    position: absolute;   
+    right: 20px;          
+    top: 20px;           
+    z-index: 1000;        
+}
+
+.ticketContainer {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Other existing styles */
+.ticketContainer {
+    position: relative;  /* This allows absolute positioning inside the container */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.statusDropdown {
+    position: absolute;
+    top: 10px;  /* Adjusted to align within the card */
+    right: 10px; /* Ensures it's within the padding of the container */
+    z-index: 10; /* Ensures dropdown is above other content */
+}
+
+.priority {
+    padding: 8px;
+    border-radius: 9px;
+}

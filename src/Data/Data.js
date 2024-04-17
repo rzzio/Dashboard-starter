@@ -6,6 +6,7 @@ import {
     UilPackage,
     
   } from "@iconscout/react-unicons";
+import { Description } from "@material-ui/icons";
   
 
 
@@ -75,15 +76,15 @@ import {
           status: 'Completed',
           admin: " suraj pandey"
         },
-        {
-          name: 'John Doe',
-          title: 'SSL Certificate',
-          createdat: '2024-01-01',
-          useremail: 'john.doe@example.com',
-          priority: 'High',
-          status: 'Completed',
-          admin: "John Admin"
-        },
+        // {
+        //   name: 'John1 Doe',
+        //   title: 'SSL Certificate',
+        //   createdat: '2024-01-01',
+        //   useremail: 'john.doe@example.com',
+        //   priority: 'High',
+        //   status: 'Completed',
+        //   admin: "John Admin"
+        // },
         {
           name: 'Jane Smith',
           title: 'Web Hosting',
@@ -110,6 +111,19 @@ import {
           priority: 'Critical',
           status: 'Delayed',
           admin: "Support Member 3"
+        }
+      ];
+      export const SingleTicketDetail = [
+        {
+          title: "Title of the ticket 1",
+          createdat: "2020-01-01",
+          useremail: 'michael.brown@example.com',
+          priority: 'Critical',
+          status: 'Pending',
+          admin: "John Doe",
+          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          attachment: ['https://picsum.photos/536/354', 'https://picsum.photos/id/237/536/354'],
+          comments: null
         }
       ];
       

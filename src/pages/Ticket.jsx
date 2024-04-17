@@ -4,7 +4,7 @@ import Sidebar from '../components/sidebar/Sidebar'
 import AdminList from '../components/AdminList/AdminList'
 import { TableChart } from '@material-ui/icons'
 import Table from '../components/Table/Table'
-import SingleBasicTable from '../components/Table/SingleTable'
+import SingleTable from '../components/Table/SingleTable'
  
 
 const Ticket = () => {
@@ -12,7 +12,7 @@ const Ticket = () => {
     <div className='App'>
         <div className="AppGlass">
         <Sidebar/>
-        <SingleBasicTable />
+        <SingleTable />
 
     
      
