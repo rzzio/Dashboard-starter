@@ -127,3 +127,60 @@ import { Description } from "@material-ui/icons";
         }
       ];
       
+
+      export const AdminList=[
+        {
+          adminId: 1,
+          email: "suraj@gmail.com",
+        },
+        {
+          adminId: 2,
+          email: "bibek@gmal.com",
+
+        }
+
+
+
+      ]
+
+      export const UserLists=[
+        {
+          userId: 1,
+          useremail: 'user1@gmail.com'
+        },
+        {
+          userId: 2,
+          useremail: "user2@gmail.com"
+        }
+
+
+      ]
+
+
+      export const CommentData=[
+
+        {
+          TickedId: 101,
+          message: [
+            {
+              UID: 1,
+              text: "comment 1 by UID 1"
+            }
+
+
+
+          ]
+            
+
+            
+            
+
+
+
+          }
+        
+
+
+
+
+      ]
