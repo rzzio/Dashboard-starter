@@ -186,13 +186,14 @@ import { Description } from "@material-ui/icons";
             {
               UID: 2,
               text: "comment on 2024-04-10",
-              name: "John Pandey",
+              name: "Suraj Pandey",
               isAdmin: true,
               createdDate: "2024-04-10"
             },
             
             // Additional comments...
           ]
-        }
+        },
+        
       ];
       
