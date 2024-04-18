@@ -73,15 +73,18 @@ const TicketDetails = () => {
             <p>Admin: {selectedAdmins[index]}</p>
             <p>Description: {ticket.description}</p>
             <div>
-              <h3>Attachments:</h3>
-              <div>
-                {ticket.attachment && ticket.attachment.length > 0 ? (
-                  ticket.attachment.map((url, idx) => (
-                    <img key={idx} src={url} alt={`Attachment ${idx + 1}`} />
-                  ))
-                ) : <span>No Attachments</span>}
-              </div>
-            </div>
+  <h3>Attachments:</h3>
+  <div>
+    {ticket.attachment && ticket.attachment.length > 0 ? (
+      ticket.attachment.map((url, idx) => (
+        <a key={idx} href={url} target="_blank" rel="noopener noreferrer"> {/* Added for security */}
+          <img src={url} alt={`Attachment ${idx + 1}`} />
+        </a>
+      ))
+    ) : <span>No Attachments</span>}
+  </div>
+</div>
+
           </div>
         </div>
       ))}

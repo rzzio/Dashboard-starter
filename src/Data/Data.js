@@ -157,65 +157,42 @@ import { Description } from "@material-ui/icons";
       ]
 
 
-      export const CommentData=[
-
+      export const CommentData = [
         {
-          TickedId: 101,
+          TicketId: 101,
           message: [
             {
               UID: 1,
-              text: "comment 1 by UID 1",
-              name:"Suraj Pandey",
-              isAdmin:true
+              text: "comment on 2024-04-01",
+              name: "Suraj Pandey",
+              isAdmin: true,
+              createdDate: "2024-04-01"
+            },
+            
+            {
+              UID: 2,
+              text: "comment on 2024-04-03",
+              name: "John Pandey",
+              isAdmin: false,
+              createdDate: "2024-04-03"
             },
             {
-              UID:2,
-              text: "comment 2 by UIID 2",
-              name:"John Pandey",
-              isAdmin: false
-            },
-            { UID:2,
-              text: "comment 2 by UIID 2",
-              name:"John Pandey",
-              isAdmin: false
-
-
+              UID: 2,
+              text: "comment on 2024-04-23",
+              name: "John Pandey",
+              isAdmin: false,
+              createdDate: "2024-04-23"
             },
             {
-
-              UID:1,
-              text: "comment 2 by UIID 2",
-              name:"John Pandey",
-              isAdmin: false
+              UID: 2,
+              text: "comment on 2024-04-10",
+              name: "John Pandey",
+              isAdmin: true,
+              createdDate: "2024-04-10"
             },
-            {
-
-              UID:1,
-              text: "comment 2 by UIID 2",
-              name:"John Pandey",
-              isAdmin: false
-            },{
-
-              UID:1,
-              text: "comment 2 by UIID 2",
-              name:"John Pandey",
-              isAdmin: false
-            },{
-
-              UID:1,
-              text: "comment 2 by UIID 2",
-              name:"John Pandey",
-              isAdmin: false
-            }
-
-
-
+            
+            // Additional comments...
           ]
-          
-
-
-          }
-  
-
-
-      ]
+        }
+      ];
+      
