@@ -166,7 +166,8 @@ import { Description } from "@material-ui/icons";
               text: "comment on 2024-04-01",
               name: "Suraj Pandey",
               isAdmin: true,
-              createdDate: "2024-04-01"
+              createdDate: "2024-04-01",
+              attachment: ['https://picsum.photos/536/354', 'https://picsum.photos/id/237/536/354'],
             },
             
             {
@@ -174,21 +175,24 @@ import { Description } from "@material-ui/icons";
               text: "comment on 2024-04-03",
               name: "John Pandey",
               isAdmin: false,
-              createdDate: "2024-04-03"
+              createdDate: "2024-04-03",
+              attachment: null,
             },
             {
               UID: 2,
               text: "comment on 2024-04-23",
               name: "John Pandey",
               isAdmin: false,
-              createdDate: "2024-04-23"
+              createdDate: "2024-04-23",
+              attachment: ['https://picsum.photos/536/354', 'https://picsum.photos/id/237/536/354'],
             },
             {
               UID: 2,
               text: "comment on 2024-04-10",
               name: "Suraj Pandey",
               isAdmin: true,
-              createdDate: "2024-04-10"
+              createdDate: "2024-04-10",
+              attachment: null,
             },
             
             // Additional comments...
