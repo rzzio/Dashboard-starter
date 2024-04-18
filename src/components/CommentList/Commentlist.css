@@ -1,0 +1,37 @@
+/* Styles for the comments container */
+.CommentList {
+    max-height: 500px;  /* Adjust based on your layout */
+    overflow-y: auto;
+}
+
+.comments-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+}
+
+/* Styles for individual tickets */
+.ticket {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styles for ticket ID display */
+.ticket-id {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Styles for individual comments within a ticket */
+.comment {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

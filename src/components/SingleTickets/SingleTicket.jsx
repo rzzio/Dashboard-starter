@@ -73,7 +73,7 @@ const TicketDetails = () => {
             <p>Admin: {selectedAdmins[index]}</p>
             <p>Description: {ticket.description}</p>
             <div>
-              <p>Attachments:</p>
+              <h3>Attachments:</h3>
               <div>
                 {ticket.attachment && ticket.attachment.length > 0 ? (
                   ticket.attachment.map((url, idx) => (

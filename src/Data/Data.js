@@ -164,23 +164,58 @@ import { Description } from "@material-ui/icons";
           message: [
             {
               UID: 1,
-              text: "comment 1 by UID 1"
+              text: "comment 1 by UID 1",
+              name:"Suraj Pandey",
+              isAdmin:true
+            },
+            {
+              UID:2,
+              text: "comment 2 by UIID 2",
+              name:"John Pandey",
+              isAdmin: false
+            },
+            { UID:2,
+              text: "comment 2 by UIID 2",
+              name:"John Pandey",
+              isAdmin: false
+
+
+            },
+            {
+
+              UID:1,
+              text: "comment 2 by UIID 2",
+              name:"John Pandey",
+              isAdmin: false
+            },
+            {
+
+              UID:1,
+              text: "comment 2 by UIID 2",
+              name:"John Pandey",
+              isAdmin: false
+            },{
+
+              UID:1,
+              text: "comment 2 by UIID 2",
+              name:"John Pandey",
+              isAdmin: false
+            },{
+
+              UID:1,
+              text: "comment 2 by UIID 2",
+              name:"John Pandey",
+              isAdmin: false
             }
 
 
 
           ]
-            
-
-            
-            
-
+          
 
 
           }
-        
-
-
+  
 
 
       ]
