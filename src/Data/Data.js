@@ -16,17 +16,17 @@ import { Description } from "@material-ui/icons";
       icon: UilEstate,
       heading: "Dashboard",
     },
-    {
-      icon: UilClipboardAlt,
-      heading: "Tickets",
-    },
+    // {
+    //   icon: UilClipboardAlt,
+    //   heading: "Tickets",    TICKET TAB is removed from sidebar
+    // },
     {
       icon: UilUsersAlt,
       heading: "Users",
     },
     {
       icon: UilPackage,
-      heading: 'Admins'
+      heading: 'IT Technicians'
     },
   ];
 
