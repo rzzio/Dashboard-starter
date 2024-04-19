@@ -74,7 +74,7 @@ import { Description } from "@material-ui/icons";
           useremail: 'supporter@gmail.com',
           priority: 'High',
           status: 'Completed',
-          admin: " suraj pandey"
+          admin: " john doe"
         },
         // {
         //   name: 'John1 Doe',

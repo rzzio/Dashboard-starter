@@ -29,10 +29,10 @@ const CommentInput = () => {
             display: 'flex',
             alignItems: 'center',
             gap: 1,
-            marginTop: 2,
+            marginTop: 3,
             padding: '8px',
             border: '1px solid #ccc',
-            borderRadius: '8px',
+            borderRadius: '10px',
             backgroundColor: '#fff'
         }}>
             <TextField
