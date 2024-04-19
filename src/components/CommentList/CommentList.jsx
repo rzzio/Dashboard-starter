@@ -50,9 +50,9 @@ const CommentsViewer = () => {
 
     return (
         <Box sx={{ maxWidth: 1400, margin: '0', padding: 0, mt: 3 }}>
-            <Typography variant="h3" component="h4" gutterBottom>
+            {/* <Typography variant="h3" component="h4" gutterBottom>
                 Comments
-            </Typography>
+            </Typography> */}
             <Box sx={{
                 maxHeight: 'auto',
                 // overflowY: 'auto',

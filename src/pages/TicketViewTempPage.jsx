@@ -4,6 +4,7 @@ import BasicTable from '../components/SingleTickets/SingleTicket'
 import TicketForm from '../components/SingleTickets/SingleTicket'
 import SingleTicket from '../components/SingleTickets/SingleTicket'
 import CommentList from '../components/CommentList/CommentList'
+import CommentInput from '../components/CommentForm/CommentInput'
 
 const TicketViewTemp = () => {
   return (
@@ -13,7 +14,12 @@ const TicketViewTemp = () => {
       
       <div style={{ display: 'flex', flexDirection: 'column' }}>
       <SingleTicket />
+      <h3>Comments</h3>
+      <CommentInput />
+     
       <CommentList />
+
+    
   
       </div>
     

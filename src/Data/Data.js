@@ -131,11 +131,16 @@ import { Description } from "@material-ui/icons";
       export const AdminList=[
         {
           adminId: 1,
-          email: "suraj@gmail.com",
+          email: "sudarshan@gmail.com",
         },
         {
           adminId: 2,
-          email: "bibek@gmal.com",
+          email: "kamal@gmal.com",
+
+        },
+        {
+          adminId: 3,
+          email: "roshni@gmal.com",
 
         }
 
@@ -164,7 +169,7 @@ import { Description } from "@material-ui/icons";
             {
               UID: 1,
               text: "comment on 2024-04-01",
-              name: "Suraj Pandey",
+              name: "Sudarshan Koirala",
               isAdmin: true,
               createdDate: "2024-04-01",
               attachment: ['https://picsum.photos/536/354', 'https://picsum.photos/id/237/536/354'],
@@ -173,7 +178,7 @@ import { Description } from "@material-ui/icons";
             {
               UID: 2,
               text: "comment on 2024-04-03",
-              name: "John Pandey",
+              name: "Kamal ",
               isAdmin: false,
               createdDate: "2024-04-03",
               attachment: null,
@@ -181,7 +186,7 @@ import { Description } from "@material-ui/icons";
             {
               UID: 2,
               text: "comment on 2024-04-23",
-              name: "John Pandey",
+              name: "John ",
               isAdmin: false,
               createdDate: "2024-04-23",
               attachment: ['https://picsum.photos/536/354', 'https://picsum.photos/id/237/536/354'],
@@ -189,7 +194,7 @@ import { Description } from "@material-ui/icons";
             {
               UID: 2,
               text: "comment on 2024-04-10",
-              name: "Suraj Pandey",
+              name: "Sudarshan Koirala",
               isAdmin: true,
               createdDate: "2024-04-10",
               attachment: null,
