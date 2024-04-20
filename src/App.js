@@ -5,12 +5,12 @@ import './pages/Home'
 // import Sidebar from './components/sidebar/Sidebar';
 import Home from './pages/Home';
 import Ticket from './pages/Ticket';
-import Nopage from './pages/NoPage';
+import Nopage from './pages/404';
 import Users from './pages/Users'
 import Admins from './pages/Admins'
 import Login from './pages/Login';
 import TicketViewTempPage from './pages/TicketViewTempPage';
-
+import TicketCreation from './pages/TicketCreation'
 
 
 function App() {
@@ -36,15 +36,16 @@ function App() {
     
     <Route path='/tickets' element={<Ticket />}/>
     <Route path= '/users' element={<Users />} />
-    <Route path= '/admins' element={<Admins />} />
+    <Route path= '/it-technicians' element={<Admins />} />
     <Route path= '/login' element={<Login />} />
     <Route path= '/tempticket' element={<TicketViewTempPage />} />
+    <Route path= 'create-ticket' element={<TicketCreation />} />
 
 
 
 
-    <Route path='*' element={<Nopage/>} /> /*404 error page*/
 
+    <Route path='*' element={<Nopage/>} /> 
 
 
 
