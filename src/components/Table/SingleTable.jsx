@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,18 +7,28 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import VisibilityIcon from '@mui/icons-material/Visibility';  // Import the eye icon
 import './Table.css';
 import { TicketLists } from '../../Data/Data';
-import { useNavigate } from 'react-router-dom';
 import { makePriorityStyles, makeStyles } from '../SingleTickets/TicketStyles'; // Adjust the import path as necessary
 
-export default function BasicTable() {
-  const navigate = useNavigate(); // Hook for navigation
 
-  const handleViewClick = (event) => {
+//TODO: fetching status and priority from API
+
+
+export default function BasicTable() {
+  const navigate = useNavigate();
+
+  const handleViewClick = (event, row) => {
     event.stopPropagation(); // Prevents the row click event from firing
     navigate('../tempticket'); // Navigate directly to the ticket view page
+  };
+
+  const handleDeleteClick = (event, row) => {
+    event.stopPropagation(); // Prevents the row click event from firing
+    console.log('Delete action on:', row); // Placeholder for actual delete functionality
   };
 
   const handleRowClick = (row) => {
@@ -37,7 +48,6 @@ export default function BasicTable() {
               <TableCell align="left">Email</TableCell>
               <TableCell align="left">Priority</TableCell>
               <TableCell align="left">Status</TableCell>
-              <TableCell align="left">Assignee</TableCell>
               <TableCell align="left">Action</TableCell>
             </TableRow>
           </TableHead>
@@ -59,17 +69,19 @@ export default function BasicTable() {
                 <TableCell align="left">
                   <span className="status" style={makeStyles(row.status)}>{row.status}</span>
                 </TableCell>
-                <TableCell align="left">{row.admin}</TableCell>
                 <TableCell align="left">
-                  <Button 
-                    variant="contained" 
-                    style={{ background: '#007FFF', color: 'white', padding: '6px 12px', borderRadius: '4px', boxShadow: '0px 2px 5px rgba(0, 123, 255, 0.5)' }}
-                    onMouseOver={(event) => event.target.style.background = '#0059B2'}
-                    onMouseOut={(event) => event.target.style.background = '#007FFF'}
-                    onClick={(event) => handleViewClick(event)} // Updated to use the modified handleViewClick
+                  <IconButton
+                    onClick={(event) => handleViewClick(event, row)}
+                    color="primary"
                   >
-                    View
-                  </Button>
+                    <VisibilityIcon />
+                  </IconButton>
+                  <IconButton
+                    color="error"
+                    onClick={(event) => handleDeleteClick(event, row)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
                 </TableCell>
               </TableRow>
             ))}
