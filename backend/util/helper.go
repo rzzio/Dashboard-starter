@@ -1,11 +1,17 @@
 package util
 
 import (
+	"backend/models"
 	"errors"
+	"io"
+	"mime/multipart"
+
 	//"go/token"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
+	"github.com/google/uuid"
+	"gorm.io/gorm"
 )
 
 const SecretKey = "secret"
@@ -27,11 +33,6 @@ func GenerateJwt(issuer string) (string, error) { // Corrected the return types
 
 	return tokenString, nil // Return the generated token and nil error
 }
-
-
-
-
-
 
 // ParseJwt parses the given JWT token string and returns the issuer if the token is valid.
 func ParseJwt(tokenString string) (string, error) {
@@ -56,4 +57,37 @@ func ParseJwt(tokenString string) (string, error) {
 	return issuer, nil
 }
 
+func GetUser(id uuid.UUID, db *gorm.DB) (*models.User, error) {
+	var user *models.User
+	if err := db.Model(&models.User{}).Where("id = ?", id).Find(&user).Error; err != nil {
+		return nil, err
+	}
+	return user, nil
+}
 
+func FileUploadHandler(file multipart.FileHeader) ([]byte, error) {
+	fileContent, err := file.Open()
+	if err != nil {
+		return nil, errors.New("failed to open the uploaded file")
+	}
+	defer fileContent.Close()
+
+	fileBytes, err := io.ReadAll(fileContent)
+	if err != nil {
+		return nil, errors.New("failed to read the file content")
+	}
+
+	return fileBytes, nil
+}
+
+func FindObjectById[T any](db *gorm.DB, id *uuid.UUID) (T, error) {
+	var object T
+	if id == nil {
+		return object, nil
+	}
+
+	if err := db.Where("id=?", id).First(&object).Error; err != nil {
+		return object, err
+	}
+	return object, nil
+}
