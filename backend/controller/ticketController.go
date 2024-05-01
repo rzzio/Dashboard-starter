@@ -88,7 +88,7 @@ func ListTicket(c *fiber.Ctx) error {
 	db = db.Table("tickets as t")
 	db = db.Joins("LEFT JOIN ticket_users tu on tu.ticket_id = t.id")
 	if user.IsTechnician {
-		db = db.Where("t.created_by_id = ? OR tu.user_id =?", userId, userId)
+		db = db.Where("tu.user_id =? or t.created_by_id = ?", userId, userId)
 	} else if user.IsSuperAdmin {
 		db = db
 	} else {
@@ -286,8 +286,8 @@ func DashboardDetails(c *fiber.Ctx) error {
 	var ticketStatus TicketStatus
 	db = db.Table("tickets")
 	if user.IsTechnician {
-		db = db.Joins("JOIN ticket_users tu ON tickets.id = tu.ticket_id").
-			Where("tu.user_id = ?", userId)
+		db = db.Joins("LEFT JOIN ticket_users tu ON tickets.id = tu.ticket_id").
+			Where("tu.user_id = ? OR tickets.created_by_id = ?", userId, userId)
 	} else if !user.IsSuperAdmin && !user.IsTechnician {
 		db = db.Where("tickets.created_by_id = ?", userId)
 	}
