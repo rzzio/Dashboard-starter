@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+  backend:
+    container_name: 'ticket_management_backend'
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '8091:8091'
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+  db:
+    container_name: 'postgres_database'
+    image: postgres:15.2
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=ticket
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+  frontend:
+    tty: true
+    volumes:
+      - ./frontend/public:/opt/app/public
+      - ./frontend/src:/opt/app/src
+    container_name: 'ticket_management_frontend'
+    build:
+      context: ./frontend
+      dockerfile : Dockerfile
+    ports:
+      - '3000:3000'
+    restart: unless-stopped
+volumes:
+  postgres_db: {}
+
