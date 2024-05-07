@@ -10,6 +10,8 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const {logout} = AuthConsumer()
+  const isTechnician = sessionStorage.getItem('isTechnician') === "true"
+  const isSuperAdmin = sessionStorage.getItem('isSuperAdmin') === "true"
 
   // Function to handle menu item click
   const handleItemClick = (heading) => {
@@ -28,6 +30,17 @@ const Sidebar = () => {
     return location.pathname === path;
   };
 
+  const hasAccess = (roles) => {
+    if (roles === 1) {
+      return isTechnician || isSuperAdmin;
+    } else if (roles === 2) {
+      return isSuperAdmin;
+    } else {
+      return true;
+    }
+  }
+
+
   return (
     <div className="Sidebar">
       <div className="logo">
@@ -36,6 +49,7 @@ const Sidebar = () => {
       </div>
       <div className="menu">
         {SidebarData.map((item, index) => (
+          hasAccess(item.roles) &&
           <div
             key={index}
             className={`menuItem ${isActive(item.heading) ? 'active' : ''}`}

@@ -20,13 +20,14 @@ function App() {
 <BrowserRouter>
       <AuthProvider>
          <Routes>
+             <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/" element={<RequireAuth/>}>
            <Route path="/dashboard" element={<Home/>}/>
            <Route path="/tickets" element={<Ticket/>}/>
-           <Route path="/users" element={<Users/>}/>
-           <Route path="/it-technicians" element={<Admins/>}/>
+              <Route path="/users" element={<RequireAdmin ><Users/> </RequireAdmin>}/>
+              <Route path="/it-technicians" element={<RequireSuperAdmin> <Admins/> </RequireSuperAdmin>}/>
            <Route path="/tempticket" element={<TicketViewTempPage/>}/>
            <Route path="/create-ticket" element={<TicketCreation/>}/>
            <Route path="*" element={<Nopage/>}/>
@@ -43,5 +44,17 @@ function RequireAuth() {
  const loggedIn = sessionStorage.getItem('loggedIn') === "true"
  return loggedIn || authed ? <Outlet />: <Navigate to="/login" replace state={{ path: location.pathname }}/>;
 }
+
+function RequireSuperAdmin({ children }){
+    const isSuperAdmin = sessionStorage.getItem('isSuperAdmin') === "true"
+    return isSuperAdmin ? children: <Navigate to="/login" />;
+}
+
+function RequireAdmin({children}){
+    const isSuperAdmin = sessionStorage.getItem('isSuperAdmin') === "true"
+    const isTechnician = sessionStorage.getItem('isTechnician') === "true"
+    return isSuperAdmin || isTechnician ? children: <Navigate to="/login" />;
+}
+
 
 export default App;

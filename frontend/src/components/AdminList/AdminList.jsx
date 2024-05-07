@@ -86,7 +86,7 @@ const UserList = () => {
                             <TableCell align="left">Last Name</TableCell>
                             <TableCell align="left">Email</TableCell>
                             <TableCell align="left">Phone</TableCell>
-                            <TableCell align="left">Action</TableCell>
+                            <TableCell align="left">Activate</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -104,7 +104,6 @@ const UserList = () => {
                                     {row.phone}
                                 </TableCell>
                                 <TableCell align="left">
-
                                     <ActivationToggle
                                         row={row}
                                         handleToggleActivation={(id, newState) => {

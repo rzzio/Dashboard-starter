@@ -88,7 +88,7 @@ func ListTicket(c *fiber.Ctx) error {
 	db = db.Table("tickets as t")
 	db = db.Joins("LEFT JOIN ticket_users tu on tu.ticket_id = t.id")
 	if user.IsTechnician {
-		db = db.Where("tu.user_id =? or t.created_by_id = ?", userId, userId)
+		db = db.Where("t.created_by_id = ? OR tu.user_id =?", userId, userId)
 	} else if user.IsSuperAdmin {
 		db = db
 	} else {
@@ -431,4 +431,32 @@ type PatchView struct {
 	Id    uuid.UUID   `json:"id"`
 	Col   string      `json:"col"`
 	Value interface{} `json:"value"`
+}
+
+func AlterTechnician(c *fiber.Ctx) error {
+	var view PatchView
+
+	if err := c.BodyParser(&view); err != nil {
+		c.Status(400)
+		return err
+	}
+	loggedInUser := c.Locals("user")
+	db := database.DB
+	user, _ := util.GetUser(loggedInUser.(uuid.UUID), db)
+	if !user.IsSuperAdmin {
+		c.Status(403)
+		return errors.New("You are not authorized to change ticket status")
+	}
+
+	if view.Col != "is_technician" {
+		c.Status(400)
+		return errors.New("Cannot change this field")
+
+	}
+
+	return db.Model(&models.User{}).
+		Where("id = ?", view.Id).
+		Updates(map[string]interface{}{
+			view.Col: view.Value,
+		}).Error
 }

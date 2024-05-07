@@ -15,18 +15,17 @@ import { Description } from "@material-ui/icons";
     { 
       icon: UilEstate,
       heading: "Dashboard",
+      roles: 0 // 0 -> All
     },
-    // {
-    //   icon: UilClipboardAlt,
-    //   heading: "Tickets",    TICKET TAB is removed from sidebar
-    // },
     {
       icon: UilUsersAlt,
       heading: "Users",
+      roles: 1 // 1->Admin
     },
     {
       icon: UilPackage,
-      heading: 'IT Technicians'
+      heading: 'IT Technicians',
+      roles: 2 // -> SuperAdmin
     },
   ];
 

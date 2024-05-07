@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import Sidebar from '../components/sidebar/Sidebar';
 import {
-  TextField, 
-  Button, 
-  MenuItem, 
-  Select, 
-  FormControl, 
-  InputLabel, 
-  Input, 
-  Typography, 
-  Box, 
-  Paper, 
+  TextField,
+  Button,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+  Input,
+  Typography,
+  Box,
+  Paper,
   FormGroup,
-  Snackbar, 
+  Snackbar,
   Alert
 } from '@mui/material';
 
@@ -22,20 +23,20 @@ const TicketCreation = () => {
   const [description, setDescription] = useState('');
   const [attachment, setAttachment] = useState(null);
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const navigate = useNavigate()
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = { title, priority, description, attachment }
-    postTicket(params).then(()=>
-        {
-          console.log('hello')
-        }
+    postTicket(params).then(() => {
+      console.log('hello')
+    }
     )
     setOpenSnackbar(true);  // Trigger the Snackbar on form submission
   };
 
-  const postTicket = async(params) => {
+  const postTicket = async (params) => {
     try {
       const url = process.env.REACT_APP_API_URL + '/api/ticket'
       const response = await fetch(url, {
@@ -49,15 +50,15 @@ const TicketCreation = () => {
 
       if (response.ok) {
         response.json().then(async (data) => {
-          await postAttachment({id: data.id, attachment: attachment})
+          await postAttachment({ id: data.id, attachment: attachment })
         })
-      } else {
       }
+      navigate('/dashboard')
     } catch (error) {
       console.log(error)
     }
   };
-  const postAttachment = async (params) =>{
+  const postAttachment = async (params) => {
     const formData = new FormData()
     formData.append('ticket_id', params.id);
     formData.append('file', params.attachment);
@@ -69,13 +70,6 @@ const TicketCreation = () => {
         body: formData,
         credentials: "include",
       });
-
-      if (response.ok) {
-        response.json().then( (data) => {
-          console.log(data)
-        })
-      } else {
-      }
     } catch (error) {
       console.log(error)
     }
@@ -95,7 +89,7 @@ const TicketCreation = () => {
   return (
     <div className='App'>
       <div className='AppGlass'>
-        <Sidebar/>
+        <Sidebar />
         <Box component={Paper} elevation={3} sx={{
           flexGrow: 1,
           marginLeft: 3,
@@ -103,7 +97,7 @@ const TicketCreation = () => {
           overflow: 'hidden',
           maxWidth: '800px',
           maxHeight: '550px',
-          marginTop:'30px'
+          marginTop: '30px'
         }}>
           <Typography variant="h5" gutterBottom>
             Create New Ticket
@@ -161,7 +155,7 @@ const TicketCreation = () => {
             autoHideDuration={6000}
             onClose={handleCloseSnackbar}
             anchorOrigin={{
-              vertical: 'bottom', 
+              vertical: 'bottom',
               horizontal: 'right'
             }}
           >

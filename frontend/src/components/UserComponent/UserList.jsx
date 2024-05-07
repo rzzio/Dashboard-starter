@@ -10,7 +10,8 @@ import Paper from '@mui/material/Paper';
 import {makePriorityStyles, makeStyles} from '../SingleTickets/TicketStyles'; // Adjust the import path as necessary
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import VisibilityIcon from '@mui/icons-material/Visibility';  // Import the eye icon
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import ActivationToggle from "../ActivationToggle";  // Import the eye icon
 const UserList = () => {
 
     const [users, setUsers] = useState([])
@@ -40,6 +41,29 @@ const UserList = () => {
         // } catch (e) {
         //     console.error(e)
         // }
+    };
+    const switchTechnicianStatus = async (userId, newState) => {
+        try {
+            const url = process.env.REACT_APP_API_URL + '/api/user';
+            const response = await fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: "include",
+                body: JSON.stringify({id: userId, col: 'is_technician', value: newState })
+            });
+
+            if (response.ok) {
+                // Handle successful response
+                console.log('User updated successfully');
+            } else {
+                // Handle error response
+                console.error('Error updating user:', response.status);
+            }
+        } catch (e) {
+            console.error('Error:', e);
+        }
     };
 
     const handleRowClick = (row) => {
@@ -77,6 +101,7 @@ const UserList = () => {
                             <TableCell align="left">Last Name</TableCell>
                             <TableCell align="left">Email</TableCell>
                             <TableCell align="left">Phone</TableCell>
+                            <TableCell align="left">IsTechnician</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -92,6 +117,14 @@ const UserList = () => {
                                 <TableCell align="left">{row.email}</TableCell>
                                 <TableCell align="left">
                                     {row.phone}
+                                </TableCell>
+                                <TableCell align="left">
+                                    <ActivationToggle
+                                        row={row}
+                                        handleToggleActivation={(id, newState) => {
+                                            switchTechnicianStatus(id, newState)
+                                        }}
+                                    />
                                 </TableCell>
 
                             </TableRow>

@@ -10,7 +10,7 @@ import (
 func Setup(app *fiber.App) {
 	nonAuthApi := app.Group("/api")
 	nonAuthApi.Post("/login", controller.Login)
-  nonAuthApi.Post("/register", controller.Register)
+	nonAuthApi.Post("/register", controller.Register)
 
 	authApi := app.Group("/api", middleware.IsAuthenticate)
 
@@ -27,4 +27,5 @@ func Setup(app *fiber.App) {
 	authApi.Put("/user/:id", controller.EditUser)
 	authApi.Patch("/inactive", controller.Inactive)
 	authApi.Patch("/tickets", controller.TicketStatusChange)
+	authApi.Patch("/user", controller.AlterTechnician)
 }
